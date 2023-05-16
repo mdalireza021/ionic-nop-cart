@@ -23,7 +23,9 @@ import { ProductService } from 'src/app/services/product.service';
 export class HomePage {
 
   ngUnsubscribe = new Subject();
+
   products: Product[] = [];
+  
   foods: Food[] = [];
   filteredFoods: Food[] = [];
   searchText: string = "";
@@ -58,7 +60,9 @@ export class HomePage {
       .subscribe({
         next: (products: Product): void => {
 
-          this.products.push(products);
+          //this.products.push(products);
+
+          console.log(products);
         },
         error: (err) => {
           console.log(err);

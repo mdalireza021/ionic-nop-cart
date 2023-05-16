@@ -9,5 +9,9 @@ export const routes: Routes = [
     path: 'account',
     loadComponent: () => import('./pages/account/account.page').then( m => m.AccountPage)
   },
+  {
+    path: 'categories',
+    loadComponent: () => import('./pages/categories/categories.page').then( m => m.CategoriesPage)
+  },
   
 ];

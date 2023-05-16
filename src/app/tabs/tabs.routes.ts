@@ -22,6 +22,13 @@ export const routes: Routes = [
           import('../pages/cart/cart.page').then((m) => m.CartPage),
       },
       {
+        path: 'account',
+        loadComponent: () =>
+          import('../pages/account/account.page').then((m) => m.AccountPage),
+      },
+
+
+      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full',

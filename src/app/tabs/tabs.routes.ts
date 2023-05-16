@@ -12,9 +12,19 @@ export const routes: Routes = [
           import('../pages/home/home.page').then((m) => m.HomePage),
       },
       {
+        path: 'categories',
+        loadComponent: () =>
+          import('../pages/categories/categories.page').then((m) => m.CategoriesPage),
+      },
+      {
         path: 'favourite',
         loadComponent: () =>
           import('../pages/favourite/favourite.page').then((m) => m.FavouritePage),
+      },
+      {
+        path: 'search',
+        loadComponent: () =>
+          import('../pages/search/search.page').then((m) => m.SearchPage),
       },
       {
         path: 'cart',
@@ -25,6 +35,11 @@ export const routes: Routes = [
         path: 'account',
         loadComponent: () =>
           import('../pages/account/account.page').then((m) => m.AccountPage),
+      },
+      {
+        path: 'more',
+        loadComponent: () =>
+          import('../pages/more/more.page').then((m) => m.MorePage),
       },
 
 

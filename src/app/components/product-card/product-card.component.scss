@@ -1,0 +1,36 @@
+ion-card {
+    background-color: #f0efef !important;
+    border-radius: 15px;
+  }
+  
+  ion-card-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1d1d1d;
+  }
+  
+  ion-card-subtitle {
+    font-size: .8rem;
+    font-weight: 500;
+    color: #FB4E4E;
+    margin-top: 10px;
+  
+    sup {
+      font-size: .8rem;
+      margin-right: 2px;
+      color: #FB4E4E;
+    }
+  }
+  
+  p {
+    font-size: 8px;
+  
+  }
+  .add-cart-button {
+    font-size: 12px;
+  }
+  ion-img::part(image) {
+    margin-top: 10px;
+    height: 100px !important;
+    align-items: center;
+  }

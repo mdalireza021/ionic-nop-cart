@@ -6,13 +6,13 @@ import { CartService } from 'src/app/services/cart.service';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
-  selector: 'app-food-card',
-  templateUrl: './food-card.component.html',
-  styleUrls: ['./food-card.component.scss'],
+  selector: 'app-product-card',
+  templateUrl: './product-card.component.html',
+  styleUrls: ['./product-card.component.scss'],
   standalone: true,
   imports: [IonicModule]
 })
-export class FoodCardComponent implements OnInit {
+export class ProductCardComponent implements OnInit {
 
   @Input() item!: Food;
 

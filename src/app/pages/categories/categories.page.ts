@@ -17,5 +17,7 @@ export class CategoriesPage implements OnInit {
 
   ngOnInit() {
   }
+  toolbarTitle: string = "Categories";
+  isBackButtonDisabled: boolean = false;
 
 }

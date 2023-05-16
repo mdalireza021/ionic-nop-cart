@@ -12,13 +12,14 @@ import { CartService } from 'src/app/services/cart.service';
 import { SearchbarComponent } from "../../components/searchbar/searchbar.component";
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
+import { ProductCardComponent } from 'src/app/components/product-card/product-card.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonicModule, SearchbarComponent, FoodCardComponent, HeaderComponent, HttpClientModule, CommonModule]
+  imports: [IonicModule, SearchbarComponent, FoodCardComponent, HeaderComponent, HttpClientModule, CommonModule, ProductCardComponent]
 })
 export class HomePage {
 

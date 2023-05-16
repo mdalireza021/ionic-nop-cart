@@ -2,12 +2,40 @@
   <app-header [toolbarTitle]="toolbarTitle" [isBackButtonDisabled]="isBackButtonDisabled"></app-header>
 </ion-header>
 
-<!-- SEARCHBAR -->
-<app-searchbar (search)="onSearch($event)"></app-searchbar>
-
 <ion-content>
-  <!-- PRODUCTS -->
-  <div class="food-list">
-    <app-product-card *ngFor="let food of filteredFoods" [item]="food"></app-product-card>
+
+  <!-- BANNAR -->
+  <div class="slider-container">
+
+  </div>
+  <!--CATAGORIES-->
+  <div class="categories-container">
+    <div>
+      <span class="f-products-title">
+        Our Categories
+      </span>
+    </div>
+
+    <app-category></app-category>
+  </div>
+
+  <!--BEST SELLING PRODUCTS-->
+  <div>
+    <span class="f-products-title">
+      best selling products
+    </span>
+  </div>
+  <div class="f-products-card">
+    <app-product-card *ngFor="let product of featuredProductsData" [product]="product"></app-product-card>
+  </div>
+
+  <!-- FEATURED PRODUCTS -->
+  <div>
+    <span class="f-products-title">
+      Featured Products
+    </span>
+  </div>
+  <div class="f-products-card">
+    <app-product-card *ngFor="let product of featuredProductsData" [product]="product"></app-product-card>
   </div>
 </ion-content>

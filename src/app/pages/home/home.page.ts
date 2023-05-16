@@ -10,23 +10,24 @@ import { FoodData } from 'src/app/data/foodData';
 import { Food } from 'src/app/models/food.model';
 import { CartService } from 'src/app/services/cart.service';
 import { SearchbarComponent } from "../../components/searchbar/searchbar.component";
-import { Product } from 'src/app/models/product.model';
+import { FeaturedProduct } from 'src/app/models/featuredproduct.model';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductCardComponent } from 'src/app/components/product-card/product-card.component';
+import { CategoryComponent } from 'src/app/components/category/category.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonicModule, SearchbarComponent, FoodCardComponent, HeaderComponent, HttpClientModule, CommonModule, ProductCardComponent]
+  imports: [IonicModule, SearchbarComponent, FoodCardComponent, HeaderComponent, HttpClientModule, CommonModule, ProductCardComponent, CategoryComponent]
 })
 export class HomePage {
 
   ngUnsubscribe = new Subject();
 
-  products: Product[] = [];
-  
+  featuredProductsData: FeaturedProduct[] = [];
+
   foods: Food[] = [];
   filteredFoods: Food[] = [];
   searchText: string = "";
@@ -34,14 +35,13 @@ export class HomePage {
   toolbarTitle: string = "Home";
   isBackButtonDisabled: boolean = true;
 
-  constructor( private cartService: CartService, private productService: ProductService) { }
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
     this.foods = this.filteredFoods = FoodData;
-    this.getProducts();
-    console.log(this.products);
-  }
+    this.getFeaturedProducts();
 
+  }
 
   onSearch(ev: any) {
     this.searchText = ev?.target?.value;
@@ -49,21 +49,24 @@ export class HomePage {
     this.filteredFoods = this.foods.filter(food => {
       return food.title?.toLowerCase()?.includes(this.searchText?.toLowerCase());
     });
-
-    console.log(this.foods)
   }
 
-  ///get all products
-  async getProducts(): Promise<void> {
+  ///get all featured products
+  async getFeaturedProducts(): Promise<void> {
 
-    this.productService.getAllProducts()
+    this.productService.getFeaturedProducts()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
-        next: (products: Product): void => {
+        next: (response: FeaturedProduct): void => {
+          let responseData = {
+            data: response.Data,
+            message: response.Message,
+            errorList: response.ErrorList
+          };
+          this.featuredProductsData = responseData.data;
+          console.log(this.featuredProductsData);
+          
 
-          //this.products.push(products);
-
-          console.log(products);
         },
         error: (err) => {
           console.log(err);

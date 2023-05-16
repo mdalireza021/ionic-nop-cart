@@ -42,7 +42,6 @@ export const routes: Routes = [
           import('../pages/more/more.page').then((m) => m.MorePage),
       },
 
-
       {
         path: '',
         redirectTo: '/tabs/home',

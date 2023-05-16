@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -14,10 +14,8 @@ export class HeaderComponent  implements OnInit {
 
   @Input() toolbarTitle!: string;
   @Input() isBackButtonDisabled!: boolean;
-  navCtrl: any;
   
-  constructor(public cartService:CartService) { }
-
+  constructor(public cartService:CartService, private navCtrl: NavController) { }
 
   ngOnInit() {}
 

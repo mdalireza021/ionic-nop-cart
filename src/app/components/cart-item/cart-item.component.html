@@ -1,0 +1,80 @@
+<ion-card>
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6">
+          <div class="card-img">
+            <ion-button fill="clear">
+              <ion-icon color="danger" name="heart-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-col>
+        <ion-col size="6">
+          <div class="product-card-text">
+            <ion-button class="card-remove-button" fill="clear" (click)="removeCard()">
+              <ion-icon name="close-outline"></ion-icon>
+            </ion-button>
+            <p class="product-title">
+              {{cartItem.title}}
+            </p>
+
+            <div class="product-price">
+
+              <span class="product-discount-price">
+                {{cartItem.offerPrice}}
+              </span>
+
+              <span class="product-actual-price">
+                {{cartItem.previusPrice}}
+              </span>
+
+            </div>
+
+            <div class="product-color">
+              <span> Color: {{cartItem.color}}</span>
+
+            </div>
+
+            <div class="product-counter">
+
+              <div>
+                <ion-button [disabled]="cartItem.quantity===1" (click)="cartService.changeQuantity(cartItem.id,-1)"
+                  class="product-counter-button" fill="clear">
+                  <span class="counter-button-icon"><ion-icon name="remove-outline"></ion-icon></span>
+                </ion-button>
+              </div>
+
+              <div class="product-counter-text">
+                <span style="display: flex;">
+                  {{cartItem.quantity}}
+                </span>
+              </div>
+
+              <div>
+                <ion-button [disabled]="cartItem.stock===cartItem.quantity"
+                  (click)="cartService.changeQuantity(cartItem.id,1)" class="product-counter-button" fill="clear">
+                  <span>
+                    <ion-icon class="counter-button-icon" name="add-outline"></ion-icon>
+                  </span>
+                </ion-button>
+              </div>
+
+            </div>
+
+            <div class="product-size">
+              <span>
+                Size :
+              </span>
+
+              <span class="product-size-text">
+                {{cartItem.size}}
+              </span>
+            </div>
+
+          </div>
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>

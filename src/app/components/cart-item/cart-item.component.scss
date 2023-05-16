@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+///header
+/// 
+ion-toolbar {
+  --background: linear-gradient(277.27deg, #088DF9 6.69%, #07C5FB 58.1%, #0BF7EB 113.46%);
+}
+
+ion-back-button {
+  --color: #FFFFFF;
+}
+
+ion-title {
+  --color: #FFFFFF;
+  --font-family: 'Lato', sans-serif;
+}
+
+.toolbar-cart-button {
+  --background-color: #FFFFFF;
+  --ripple-color: transparent;
+}
+
+ion-badge {
+  position: absolute;
+  margin-top: 5px;
+  margin-right: 10px;
+  font-size: 8pt;
+  right: -16px;
+  top: -3px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #000;
+}
+
+///cart 
+.cart-container {
+
+  background-color: #E9EDF2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.cart-title {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 5px;
+  text-transform: uppercase;
+  color: #2B2E43;
+}
+
+.cart-item-count {
+  background: #FFFFFF;
+  border-radius: 80px;
+  width: auto;
+  margin: 5px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 12px;
+  text-transform: uppercase;
+  padding: 2px;
+}
+
+.cart-item-count .cart-item-count-text {
+  --font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 12px;
+  margin: 5px;
+  padding: 5px;
+  text-transform: uppercase;
+  color: #2B2E43;
+}
+
+ion-card {
+  background: #FFFFFF;
+  border: 1px solid #E8E9F2;
+  border-radius: 10px;
+}
+
+.toolbar-cart-button {
+  color: #FFFFFF;
+}
+
+.card-remove-button {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  --ripple-color: transparent;
+  background-color: transparent;
+  opacity: 100;
+  // margin-top: -5px;
+
+}
+
+ion-col,
+ion-grid {
+  margin: 0;
+  padding: 0;
+}
+
+ion-card-content {
+  padding: 0;
+}
+
+.card-img {
+  width: 180px;
+  height: 180px;
+  background-repeat: no-repeat;
+  background-image: url(/assets/orange.png);
+  background-size: 100% 100%;
+}
+
+.card-text {
+  height: 180px;
+}
+
+.product-title {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  margin: 5px;
+  color: #2B2E43;
+  margin-top: 20px;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.product-price {
+  position: relative;
+  font-family: 'Khand', sans-serif;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.product-discount-price {
+  color: #10CB3C;
+  margin: 0 5px 0 5px;
+  font-weight: 600;
+}
+
+.product-actual-price {
+  font-weight: 200;
+  text-decoration: line-through;
+}
+
+.product-color {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 5px;
+  color: #2B2E43;
+}
+
+.product-counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 110px;
+  height: 30px;
+  background: #FFFFFF;
+  border: 1px solid #EDEEF5;
+  border-radius: 100px;
+
+}
+
+.product-counter-container {
+  width: 28px;
+  height: 28px;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 2px 1px rgba(128, 129, 142, 0.25);
+  border-radius: 50%;
+}
+
+.product-counter-button {
+  background: #FFFFFF;
+  width: 28px;
+  height: 28px;
+  box-shadow: 1px 1px 2px 1px rgba(128, 129, 142, 0.25);
+  border-radius: 50%;
+  --ripple-color: transparent;
+}
+
+.counter-button-icon {
+  color: #A9AABF;
+
+
+}
+
+.product-counter-text {
+  margin: 10px;
+  width: 9px;
+  height: 17px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #2B2E43;
+}
+
+.product-size {
+  position: relative;
+  margin: 5px;
+  font-family: 'Lato', sans-serif;
+  color: #2B2E43;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 13px;
+  line-height: 15px;
+}
+
+.product-size-text {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #2B2E43;
+}

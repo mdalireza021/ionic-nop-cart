@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+///header
+/// 
+ion-toolbar {
+  --background: linear-gradient(277.27deg, #088DF9 6.69%, #07C5FB 58.1%, #0BF7EB 113.46%);
+}
+
+ion-back-button {
+  --color: #FFFFFF;
+}
+
+ion-title {
+  --color: #FFFFFF;
+  --font-family: 'Lato', sans-serif;
+}
+
+.toolbar-cart-button {
+  --background-color: #FFFFFF;
+  --ripple-color: transparent;
+}
+
+ion-badge {
+  position: absolute;
+  margin-top: 5px;
+  margin-right: 10px;
+  font-size: 8pt;
+  right: -16px;
+  top: -3px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #000;
+}
+
+///cart 
+.cart-container {
+
+  background-color: #E9EDF2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.cart-title {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  margin: 5px;
+  text-transform: uppercase;
+  color: #2B2E43;
+}
+
+.cart-item-count {
+  background: #FFFFFF;
+  border-radius: 80px;
+  width: auto;
+  margin: 5px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 10px;
+  line-height: 12px;
+  text-transform: uppercase;
+  padding: 2px;
+}
+
+.cart-item-count .cart-item-count-text {
+  --font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 12px;
+  margin: 5px;
+  padding: 5px;
+  text-transform: uppercase;
+  color: #2B2E43;
+}
+
+
+///coupon and card container
+
+.coupon-card-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-input-field {
+  background: #FFFFFF;
+  border: 1px solid #D4D3DA;
+  border-radius: 20px;
+  margin: 10px;
+  --padding-start: 10px;
+  --highlight-color-focused: transparent;
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 15px;
+  color: #9899A7;
+  min-height: 40px;
+}
+
+.container-button {
+  background-color: #2B2E43;
+  color: #FFFFFF;
+  border-radius: 20px;
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: none;
+  margin-right: 10px;
+  height: 40px;
+}
+
+.checkout-button {
+  width: 100%;
+  height: 60px;
+  --background: linear-gradient(92.39deg, #0AEAF0 0%, #08BBFB 49.76%, #088EF9 97.99%);
+  --border-radius: 25px 25px 0px 0px;
+  --font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22px;
+  text-transform: uppercase;
+}
+
+ion-item ion-label {
+  display: flex;
+  justify-content: space-between;
+}
+
+.cart-item-text-container {
+  font-family: 'Lato', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #333333;
+}
+
+.cart-item-price-container {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 19px;
+  color: #10CB3C;
+
+}
+
+
+///footer
+ion-footer {
+  background-color: #FFFFFF;
+}
+///bottom-container
+.bottom-container {
+  //position: absolute;
+  //bottom: 0;
+  //width: 100%;
+  margin-top: 50px;
+}

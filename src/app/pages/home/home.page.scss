@@ -1,0 +1,27 @@
+ion-content {
+    --padding-start: 0px;
+    --padding-end: 10px;
+  
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      margin-top: 3rem;
+    }
+  
+   
+    .list-header {
+      font-weight: 700;
+      color: #515151;
+      font-size: 1.8rem;
+      margin-bottom: 1.6rem;
+      margin-top: 2.5rem;
+    }
+  
+    .food-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      
+    }
+  }

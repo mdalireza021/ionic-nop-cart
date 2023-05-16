@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons *ngIf="!isBackButtonDisabled" slot="start">
+      <ion-back-button defaultHref="/tabs/home">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button class="toolbar-cart-button" fill="clear" (click)="gotoCartPage()">
+        <ion-icon style="color: #ffffff;" size="large" name="cart-outline"></ion-icon>
+        <ion-badge color="dark">{{cartService.getTotalItems()}}</ion-badge>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{toolbarTitle}}</ion-title>
+  </ion-toolbar>
+</ion-header>

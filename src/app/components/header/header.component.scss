@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand&family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+///header
+/// 
+ion-toolbar {
+  --background: linear-gradient(277.27deg, #088DF9 6.69%, #07C5FB 58.1%, #0BF7EB 113.46%);
+}
+
+ion-back-button {
+  --color: #FFFFFF;
+}
+
+ion-title {
+  --color: #FFFFFF;
+  --font-family: 'Lato', sans-serif;
+}
+
+.toolbar-cart-button {
+  --background-color: #FFFFFF;
+  --ripple-color: transparent;
+}
+
+ion-badge {
+  position: absolute;
+  margin-top: 5px;
+  margin-right: 10px;
+  font-size: 8pt;
+  right: -16px;
+  top: -3px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #000;
+}

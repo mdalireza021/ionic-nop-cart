@@ -2,7 +2,7 @@ import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'io.ionic.starter',
-  appName: 'ionic-ecommerce-app',
+  appName: 'ionic-nop-cart',
   webDir: 'www',
   server: {
     androidScheme: 'https'

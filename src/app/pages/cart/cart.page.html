@@ -1,0 +1,73 @@
+
+  <app-header [toolbarTitle]="toolbarTitle" [isBackButtonDisabled]="isBackButtonDisabled"></app-header>
+
+
+<ion-content>
+
+  <div class="cart-container" *ngIf="cartService.cartItems.length">
+    <div class="cart-title">
+      <span> Products</span>
+    </div>
+
+    <div class="cart-item-count">
+      <span class="cart-item-count-text"> {{cartService.getTotalItems()}} Item(s)</span>
+    </div>
+  </div>
+
+  <app-cart-item *ngFor="let cartItem of cartService.cartItems" [cartItem]="cartItem">
+  </app-cart-item>
+
+  <div class="bottom-container" *ngIf="cartService.cartItems.length else emptyCart">
+
+    <div class="coupon-card-container">
+      <ion-input class="container-input-field" fill="clear" placeholder="Enter your Coupon here">
+      </ion-input>
+      <div>
+        <ion-button fill="clear" class="container-button"> Apply Coupon</ion-button>
+      </div>
+    </div>
+
+    <div class="coupon-card-container">
+      <ion-input class="container-input-field" fill="clear" placeholder="Entre Gift Card code">
+      </ion-input>
+      <div>
+        <ion-button fill="clear" class="container-button"> Add Gift Card </ion-button>
+      </div>
+    </div>
+
+    <ion-item>
+      <ion-label>
+        <span class="cart-item-text-container">Sub-Total</span>
+        <span class="cart-item-price-container">${{cartService.getSubTotalAmount()}}</span>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <span class="cart-item-text-container">shipping</span>
+        <span class="cart-item-price-container">${{cartService.getShippingCargeAmount()}}</span>
+      </ion-label>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>
+        <span class="cart-item-text-container">Total</span>
+        <span class="cart-item-price-container">${{cartService.getTotalAmount()}}</span>
+      </ion-label>
+    </ion-item>
+
+  </div>
+
+  <ng-template #emptyCart>
+    <!-- <div>Empty Cart!</div> -->
+    <app-empty-cart></app-empty-cart>
+    
+  </ng-template>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-button class="checkout-button" *ngIf="cartService.cartItems.length">
+    process to checkout
+  </ion-button>
+
+</ion-footer>

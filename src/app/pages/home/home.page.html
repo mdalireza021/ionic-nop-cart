@@ -1,0 +1,13 @@
+<ion-header>
+  <app-header [toolbarTitle]="toolbarTitle" [isBackButtonDisabled]="isBackButtonDisabled"></app-header>
+</ion-header>
+
+<!-- SEARCHBAR -->
+<app-searchbar (search)="onSearch($event)"></app-searchbar>
+
+<ion-content>
+  <!-- PRODUCTS -->
+  <div class="food-list">
+    <app-food-card *ngFor="let food of filteredFoods" [item]="food"></app-food-card>
+  </div>
+</ion-content>

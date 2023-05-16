@@ -5,13 +5,13 @@ import { IonicModule } from '@ionic/angular';
 import { HeaderComponent } from "../../components/header/header.component";
 
 @Component({
-    selector: 'app-search',
-    templateUrl: './search.page.html',
-    styleUrls: ['./search.page.scss'],
+    selector: 'app-more',
+    templateUrl: './more.page.html',
+    styleUrls: ['./more.page.scss'],
     standalone: true,
     imports: [IonicModule, CommonModule, FormsModule, HeaderComponent]
 })
-export class SearchPage implements OnInit {
+export class MorePage implements OnInit {
 
   constructor() { }
 

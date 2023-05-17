@@ -34,7 +34,28 @@ export class HomePage {
 
   toolbarTitle: string = "Home";
   isBackButtonDisabled: boolean = true;
+  
+  ///items
+  items = [
+    {
+      imageUrl: "assets/foods.png",
+      title: "Foods"
+    },
+    {
+      imageUrl: "assets/watch.png",
+      title: "Watch"
+    },
+    {
+      imageUrl: "assets/phones.png",
+      title: "Phones"
+    },
+    {
+      imageUrl: "assets/furniture.png",
+      title: "Furniture"
+    },
+  ]
 
+  
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
@@ -65,7 +86,7 @@ export class HomePage {
           };
           this.featuredProductsData = responseData.data;
           console.log(this.featuredProductsData);
-          
+
 
         },
         error: (err) => {
@@ -75,7 +96,7 @@ export class HomePage {
   }
 
   ngOnDestroy() {
-    this.ngUnsubscribe.next(null)
-    this.ngUnsubscribe.complete()
+    this.ngUnsubscribe.next(null);
+    this.ngUnsubscribe.complete();
   }
 }

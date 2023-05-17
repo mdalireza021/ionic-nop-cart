@@ -3,10 +3,13 @@ import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { url } from 'inspector';
+import { Subject, takeUntil } from 'rxjs';
 import { Products } from 'src/app/constants/product.constant';
+import { AddToCart } from 'src/app/models/add-to-cart.model';
 import { FeaturedProduct } from 'src/app/models/featuredproduct.model';
 import { Food } from 'src/app/models/food.model';
 import { CartService } from 'src/app/services/cart.service';
+import { ProductService } from 'src/app/services/product.service';
 import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
@@ -19,30 +22,48 @@ import { ToastService } from 'src/app/services/toast.service';
 export class ProductCardComponent implements OnInit {
 
   @Input() product!: FeaturedProduct;
-
   rating: number = 3.5;
-  
-  constructor(private toastService: ToastService, private elementRef: ElementRef, private renderer: Renderer2) { }
+
+  ngUnsubscribe = new Subject();
+
+  constructor(private toastService: ToastService, private elementRef: ElementRef, private renderer: Renderer2, private productService: ProductService) { }
 
   ngOnInit() {
 
-    
     const divElement = this.elementRef.nativeElement.querySelector('.card-img');
 
     if (divElement) {
       // this.renderer.setStyle(divElement, 'background-image', 'url(assets/watch.png)');
       let imageURL = this.getImageUrl();
-      console.log(imageURL);
       this.renderer.setStyle(divElement, 'background-image', 'url(/assets/watch.png)');
     }
   }
 
-  addCart() {
-    this.toastService.loadtoast('success', Products.ADD_TO_CART_SUCCESS_MSG);
-    //this.cartService.addToCart(this.item);
+  ///
+  addToCart() {
+
+    const id: number = 18;
+    this.productService.addToCart(id)
+      .pipe(takeUntil(this.ngUnsubscribe))
+      .subscribe({
+        next: (response: AddToCart): void => {
+          this.toastService.loadtoast('success', Products.ADD_TO_CART_SUCCESS_MSG);
+
+        },
+        error: () => {
+          this.toastService.loadtoast('danger', Products.ADD_TO_CART_FAILED_MSG);
+        },
+        complete: () => {
+        }
+      });
   }
 
-  
+
+
+
+  ///
+
+
   getImageUrl(): string {
     // Assuming you want to use the image URL from the first item in the 'Data' array
     const imageUrl = this.product.PictureModels[0]?.ImageUrl;

@@ -4,20 +4,22 @@
 
 <ion-content>
 
-  <div class="cart-container" *ngIf="cartService.cartItems.length">
+  <!-- <div class="cart-container" *ngIf="cartService.cartItems.length"> -->
+    <div class="cart-container">
     <div class="cart-title">
       <span> Products</span>
     </div>
 
     <div class="cart-item-count">
-      <span class="cart-item-count-text"> {{cartService.getTotalItems()}} Item(s)</span>
+      <span class="cart-item-count-text"> {{cartService.getTotalCartItem()}} Item(s)</span>
     </div>
   </div>
 
-  <app-cart-item *ngFor="let cartItem of cartService.cartItems" [cartItem]="cartItem">
-  </app-cart-item>
+  <!-- <app-cart-item *ngFor="let cartItem of cartService.cartItems" [cartItem]="cartItem">
+  </app-cart-item> -->
 
-  <div class="bottom-container" *ngIf="cartService.cartItems.length else emptyCart">
+  <!-- <div class="bottom-container" *ngIf="cartService.cartItems.length else emptyCart"> -->
+    <div class="bottom-container">
 
     <div class="coupon-card-container">
       <ion-input class="container-input-field" fill="clear" placeholder="Enter your Coupon here">
@@ -59,15 +61,17 @@
   </div>
 
   <ng-template #emptyCart>
-    <!-- <div>Empty Cart!</div> -->
     <app-empty-cart></app-empty-cart>
-    
   </ng-template>
+
 </ion-content>
 
-<ion-footer class="ion-no-border">
+
+<!-- FOOTER -->
+
+<!-- <ion-footer class="ion-no-border">
   <ion-button class="checkout-button" *ngIf="cartService.cartItems.length">
     process to checkout
   </ion-button>
 
-</ion-footer>
+</ion-footer> -->

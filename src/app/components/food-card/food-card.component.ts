@@ -22,6 +22,6 @@ export class FoodCardComponent implements OnInit {
 
   addCart() {
     this.toastService.loadtoast('success', Products.ADD_TO_CART_SUCCESS_MSG);
-    this.cartService.addToCart(this.item);
+    //this.cartService.addToCart(this.item);
   }
 }

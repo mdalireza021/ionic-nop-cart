@@ -7,8 +7,10 @@
       </ion-button>
 
       <div class="add-button-container">
-        <ion-button color="light" (click)="addCart()">
-          <ion-icon name="add" style="color: #10CB3C;"></ion-icon>
+        <ion-button color="light" (click)="addToCart()" shape="round">
+          <span>
+            <ion-icon slot="icon-only" name="add" size="large" style="color: #10CB3C;"></ion-icon>
+          </span>
         </ion-button>
       </div>
 

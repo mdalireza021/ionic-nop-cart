@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
 
 @Component({
@@ -10,6 +10,7 @@ import { IonicModule } from '@ionic/angular';
 })
 export class CategoryComponent  implements OnInit {
 
+  @Input()  item!: any;
   constructor() { }
 
   ngOnInit() {}

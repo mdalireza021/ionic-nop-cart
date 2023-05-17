@@ -22,6 +22,12 @@ ion-content {
   .categories-container {
     background-color: #ECEDF5;
     width: 100%;
+    height: fit-content;
+  }
+
+  .categories-item-container {
+    display: flex;
+    justify-content: center;
   }
 
   .card-categories-container {

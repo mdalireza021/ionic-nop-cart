@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IonicModule } from '@ionic/angular';
-import { CartItem } from 'src/app/models/cart-item.model';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
@@ -12,7 +11,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartItemComponent  implements OnInit {
 
-  @Input() cartItem!: CartItem;
+  @Input() cartItem!: any;
   
   constructor(public cartService: CartService) { }
 
@@ -20,6 +19,6 @@ export class CartItemComponent  implements OnInit {
 
   removeCard() {
     this.cartService.removeItem(this.cartItem.id);
-    console.log(this.cartService.getCart());
+    //console.log(this.cartService.getCart());
   }
 }

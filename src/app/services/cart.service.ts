@@ -1,6 +1,8 @@
+import {HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
-import { CartItem } from '../models/cart-item.model';
+import { Observable, of } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { Cart } from '../models/cart-item.model';
 import { Food } from '../models/food.model';
 import { ToastService } from './toast.service';
 
@@ -10,64 +12,54 @@ import { ToastService } from './toast.service';
 export class CartService {
 
   totalItems: number = 0;
-  cartItems: CartItem[] = [];
+  cartItems!: Cart;
 
-  constructor(private toastService: ToastService) { }
-
-  getCart() {
-    return of(this.cartItems);
+  httpHeader = {
+    headers: new HttpHeaders({
+      'Content-type': 'application/json',
+      'DeviceId': '44b4d8cd-7a2d-4a5f-a0e2-798021f1e294',
+    })
   }
   
-  addToCart(item: Food) {
-
-    const cartItem: CartItem = {
-      id: item.id,
-      title: item.title,
-      offerPrice: item.offerPrice,
-      previusPrice: item.previusPrice,
-      color: item.color,
-      quantity: 1,
-      image: item.image,
-      size: item.size,
-      stock: item.stock
-    }
-
-    const index = this.cartItems.findIndex((i) => i.id === item.id);
-    if (index === -1) {
-      this.cartItems.push(cartItem);
-    } else {
-      this.cartItems[index].quantity += 1;
-    }
-
-  }
-
-  getTotalItems() {
-    return this.cartItems.map(item => item.quantity).reduce((prev, curr) => (prev + curr), 0);
-  }
+  constructor(private toastService: ToastService, private http: HttpClient) { }
 
   getSubTotalAmount() {
-    return this.cartItems.map(item => item.offerPrice * item.quantity).reduce((prev, curr) => (prev + curr), 0);
+    //return this.cartItems.map(item => item.offerPrice * item.quantity).reduce((prev, curr) => (prev + curr), 0);
   }
 
   getShippingCargeAmount() {
-    return 10;
+   // return 10;
   }
   getTotalAmount() {
 
-    return this.getSubTotalAmount() + this.getShippingCargeAmount();
+    //return this.getSubTotalAmount() + this.getShippingCargeAmount();
   }
 
   removeItem(cartId: number) {
-    this.cartItems = this.cartItems.filter(cartItem => cartItem.id != cartId);
-    console.log(this.cartItems);
+    //this.cartItems = this.cartItems.filter(cartItem => cartItem.id != cartId);
+    
   }
 
   changeQuantity(id: number, quantity: number) {
     const items = this.cartItems;
-    const index = items.findIndex((item) => item.id === id);
-    this.cartItems[index].quantity += quantity;
-    if (this.cartItems[index].quantity === this.cartItems[index].stock) {
-      this.toastService.loadtoast('warning', 'can not add more than stock');
-    }
+    // const index = items.findIndex((item) => item.id === id);
+    // this.cartItems[index].quantity += quantity;
+    // if (this.cartItems[index].quantity === this.cartItems[index].stock) {
+    //   this.toastService.loadtoast('warning', 'can not add more than stock');
+    // }
+  }
+
+  getCartItems(): Observable<any> {
+
+    //const cartURL = `${environment.baseURL}/shoppingcart/cart`;
+
+    const cartURL = "https://demo460.nop-station.com/api/shoppingcart/cart";
+
+    return this.http.get<any>( cartURL, this.httpHeader);
+
+  }
+
+  getTotalCartItem() {
+
   }
 }

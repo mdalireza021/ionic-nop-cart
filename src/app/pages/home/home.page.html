@@ -16,13 +16,15 @@
       </span>
     </div>
 
-    <app-category></app-category>
+    <div class="categories-item-container">
+      <app-category *ngFor="let item of items" [item]="item"></app-category>
+    </div>
   </div>
 
   <!--BEST SELLING PRODUCTS-->
   <div>
     <span class="f-products-title">
-      best selling products
+      best selling
     </span>
   </div>
   <div class="f-products-card">

@@ -3,7 +3,7 @@
     <ion-grid>
       <ion-row>
         <ion-col size="6">
-          <div class="card-img">
+          <div class="card-img" [style.background-image]="'url(' + getImageUrl() + ')'">
             <ion-button fill="clear">
               <ion-icon color="danger" name="heart-outline"></ion-icon>
             </ion-button>
@@ -15,17 +15,19 @@
               <ion-icon name="close-outline"></ion-icon>
             </ion-button>
             <p class="product-title">
-              {{cartItem.title}}
+              {{cartItem.ProductName}}
             </p>
 
             <div class="product-price">
 
               <span class="product-discount-price">
-                {{cartItem.offerPrice}}
+                {{cartItem.UnitPrice}}
               </span>
 
               <span class="product-actual-price">
-                {{cartItem.previusPrice}}
+                ${{getPreviousPrice()}}
+
+
               </span>
 
             </div>
@@ -38,21 +40,21 @@
             <div class="product-counter">
 
               <div>
-                <ion-button [disabled]="cartItem.quantity===1" (click)="cartService.changeQuantity(cartItem.id,-1)"
-                  class="product-counter-button" fill="clear">
+                <ion-button [disabled]="cartItem.Quantity === 1" (click)="updateCard(cartItem.Id,-1)" class="product-counter-button"
+                  fill="clear">
                   <span class="counter-button-icon"><ion-icon name="remove-outline"></ion-icon></span>
                 </ion-button>
               </div>
 
               <div class="product-counter-text">
                 <span style="display: flex;">
-                  {{cartItem.quantity}}
+                  {{cartItem.Quantity}}
                 </span>
               </div>
 
               <div>
-                <ion-button [disabled]="cartItem.stock===cartItem.quantity"
-                  (click)="cartService.changeQuantity(cartItem.id,1)" class="product-counter-button" fill="clear">
+                <ion-button (click)="updateCard(cartItem.Id,1)" class="product-counter-button"
+                  fill="clear">
                   <span>
                     <ion-icon class="counter-button-icon" name="add-outline"></ion-icon>
                   </span>

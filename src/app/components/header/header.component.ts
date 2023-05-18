@@ -7,21 +7,21 @@ import { CartService } from 'src/app/services/cart.service';
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  standalone:true,
-  imports:[IonicModule,CommonModule]
+  standalone: true,
+  imports: [IonicModule, CommonModule]
 })
-export class HeaderComponent  implements OnInit {
+export class HeaderComponent {
 
   @Input() toolbarTitle!: string;
   @Input() isBackButtonDisabled!: boolean;
-  
-  constructor(public cartService:CartService, private navCtrl: NavController) { }
 
-  ngOnInit() {}
+  constructor(public cartService: CartService, private navCtrl: NavController) { }
 
-  gotoCartPage() {
-
-    this.navCtrl.navigateForward('/tabs/cart');
+  ionViewDidEnter() {
+    console.log('ion view did enter on header.comp.ts');
   }
 
+  gotoCartPage() {
+    this.navCtrl.navigateForward('/tabs/cart');
+  }
 }

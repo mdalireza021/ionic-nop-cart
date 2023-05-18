@@ -9,10 +9,11 @@ export class ToastService {
   constructor(private toastController: ToastController) { }
 
   async loadtoast(color: string, message: string) {
+    
     const toast = await this.toastController.create({
       color,
       message,
-      duration: 1000,
+      duration: 500,
       position: "top"
     });
     await toast.present();

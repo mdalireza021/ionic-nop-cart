@@ -14,6 +14,8 @@ import { FeaturedProduct } from 'src/app/models/featuredproduct.model';
 import { ProductService } from 'src/app/services/product.service';
 import { ProductCardComponent } from 'src/app/components/product-card/product-card.component';
 import { CategoryComponent } from 'src/app/components/category/category.component';
+import { LoadingService } from 'src/app/services/loading.service';
+import { Cart } from 'src/app/models/cart.model';
 
 @Component({
   selector: 'app-home',
@@ -34,7 +36,7 @@ export class HomePage {
 
   toolbarTitle: string = "Home";
   isBackButtonDisabled: boolean = true;
-  
+
   ///items
   items = [
     {
@@ -54,9 +56,8 @@ export class HomePage {
       title: "Furniture"
     },
   ]
-
   
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, private loadingService: LoadingService) { }
 
   ngOnInit(): void {
     this.foods = this.filteredFoods = FoodData;
@@ -75,21 +76,24 @@ export class HomePage {
   ///get all featured products
   async getFeaturedProducts(): Promise<void> {
 
+    const loading = this.loadingService.presentLoading("Loading...");
     this.productService.getFeaturedProducts()
       .pipe(takeUntil(this.ngUnsubscribe))
       .subscribe({
-        next: (response: FeaturedProduct): void => {
+        next: async (response: FeaturedProduct): Promise<void> => {
+
           let responseData = {
             data: response.Data,
             message: response.Message,
             errorList: response.ErrorList
-          };
+          }
+
           this.featuredProductsData = responseData.data;
-          console.log(this.featuredProductsData);
 
-
+          await loading && this.loadingService.dismissLoading();
         },
-        error: (err) => {
+        error: async (err) => {
+          await loading && this.loadingService.dismissLoading();
           console.log(err);
         }
       });
